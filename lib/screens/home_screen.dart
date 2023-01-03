@@ -6,6 +6,7 @@ class HomeScreen extends StatelessWidget{
     return Scaffold(
         appBar: AppBar(
           title: const Text('MI SEGUNDA APP'),
+          backgroundColor: Colors.redAccent,
           actions: [
     
         PopupMenuButton(
