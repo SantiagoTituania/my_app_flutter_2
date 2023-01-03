@@ -6,7 +6,7 @@ class HomeScreen extends StatelessWidget{
     return Scaffold(
         appBar: AppBar(
           title: const Text('MI SEGUNDA APP'),
-          backgroundColor: Colors.redAccent,
+          backgroundColor: Colors.lightBlueAccent,
           actions: [
     
         PopupMenuButton(
@@ -47,7 +47,50 @@ class HomeScreen extends StatelessWidget{
 
   ],
         ),
-        body: const Center(child: Text("Hola de nuevo, mundo de Apps"),),
+        body: Container(
+          padding: const EdgeInsets.all(20),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  children: const[
+                    Expanded(child: ElevatedButton(
+                      onPressed: null, 
+                      child:  Text("Boton1")),
+                      ),
+                      SizedBox(width: 10,),
+                      Expanded(child: ElevatedButton(
+                      onPressed: null, 
+                      child:  Text("Boton2")),
+                      ),
+                      SizedBox(width: 10,),
+                      Expanded(child: ElevatedButton(
+                      onPressed: null, 
+                      child:  Text("Boton3")),
+                      ),
+                      SizedBox(width: 10,),
+                      
+                  ],
+                ),
+                const SizedBox(height: 30,),
+                const Text("Bienvenido, haga clic para continuar"),
+                const SizedBox(height: 30,),
+                const Text("Segundo parrafo"),
+                const SizedBox(height: 30,),
+                ElevatedButton(
+              //style: style,
+              onPressed: null,
+              child: const Text('Disabled'),
+            ),
+              SizedBox(height: 30,),
+                Text("Tercer parrafo")],
+                
+                
+            ),
+            ),
+        ),
         bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),
           child: Container(height: 100.5),
