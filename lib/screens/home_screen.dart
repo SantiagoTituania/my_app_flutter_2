@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget{
+  //final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(Object context) {
     return Scaffold(
@@ -53,6 +54,7 @@ class HomeScreen extends StatelessWidget{
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
+              
               children: [
                 Row(
                   children: const[
@@ -84,11 +86,85 @@ class HomeScreen extends StatelessWidget{
               onPressed: null,
               child: const Text('Disabled'),
             ),
-              SizedBox(height: 30,),
-                Text("Tercer parrafo")],
-                
-                
+              const SizedBox(height: 30,),
+               const  Text("Tercer parrafo"),
+               
+               const SizedBox(height: 30,),
+               
+               const Text("Bienvenido"),
+              // key: _formKey,
+               TextFormField(
+              decoration: const InputDecoration(
+              hintText: 'Ingrese su usuario',
+              
             ),
+            
+            
+             validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return 'Por favor ingrese nuevamente su Usuario';
+              }
+              return null;
+            },),
+            TextFormField(
+              decoration: const InputDecoration(
+              hintText: 'Ingrese su contraseña',
+              
+            ),
+            
+            
+             validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return 'Por favor ingrese su contraseña';
+              }
+              return null;
+            },),
+            TextFormField(
+              decoration: const InputDecoration(
+              hintText: 'Confirme su contraseña',
+              
+            ),
+            
+            
+             validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return 'Por favor ingrese nuevamente su contraseña';
+              }
+              return null;
+            },),
+            Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: ElevatedButton(
+              onPressed: () {
+                // Validate will return true if the form is valid, or false if
+                // the form is invalid.
+            
+              },
+              //child: const Text('Ingresar'),
+              child: Row(
+                children: const[
+                  Expanded(child: ElevatedButton(
+                    onPressed: null, 
+                    child:  Text("Ingresar")),
+                    ),
+                    SizedBox(width: 30,),
+                    Expanded(child: ElevatedButton(
+                    onPressed: null, 
+                    child:  Text("Cancelar")),
+                    ),
+                    
+                ],
+              ),
+              
+              
+              
+            ),
+          ),
+           ],
+
+                          
+            ),
+            
             ),
         ),
         bottomNavigationBar: BottomAppBar(
