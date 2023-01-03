@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget{
 
   ],
         ),
-        body: const Center(child: Text("Hola de nuevo, mundo"),),
+        body: const Center(child: Text("Hola de nuevo, mundo de Apps"),),
         bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),
           child: Container(height: 100.5),
