@@ -23,9 +23,13 @@ class HomeScreen extends StatelessWidget{
                       value: 1,
                       child: Text("Ajustes"),
                   ),
-
                   PopupMenuItem<int>(
                       value: 2,
+                      child: Text("Otros"),
+                  ),
+
+                  PopupMenuItem<int>(
+                      value: 3,
                       child: Text("Salir"),
                   ),
               ];
