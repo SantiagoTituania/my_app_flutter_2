@@ -16,17 +16,17 @@ class HomeScreen extends StatelessWidget{
             return [
               PopupMenuItem<int>(
                     value: 0,
-                      child: Text("My Account.."),
+                      child: Text("Mi cuenta"),
                   ),
 
                   PopupMenuItem<int>(
                       value: 1,
-                      child: Text("Settings"),
+                      child: Text("Ajustes"),
                   ),
 
                   PopupMenuItem<int>(
                       value: 2,
-                      child: Text("Logout"),
+                      child: Text("Salir"),
                   ),
               ];
           },
