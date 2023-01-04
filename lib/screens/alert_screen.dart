@@ -9,8 +9,35 @@ class AlertScreen extends StatelessWidget{
       appBar: AppBar(
         title: const Text('Pantalla alerta Screen'),
       ),
-      body: const Center(child: Text("Pantalla de Alerta Screen")),
-      );
+      body: Center(child: 
+      ElevatedButton(
+        onPressed: (() {
+        _mostrarDialogo(context);
+      }), 
+      child: Text("Mostrar Alerta")),
+      ));
+  }
+
+  void _mostrarDialogo(BuildContext context){
+    showDialog(
+      context: context, 
+      builder: ((context) {
+        return AlertDialog(
+          title: Text ("Titulo del Dialogo"),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              Text("Este es el contenido de la alerta"),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              }, 
+              child: const Text("Cerrar"))],
+        );
+      }));
   }
 
 }

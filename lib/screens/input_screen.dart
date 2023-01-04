@@ -14,7 +14,7 @@ class Input_Screen extends StatelessWidget{
         'last_name': 'Tituaña',
         'email': 'san@gmail.com',
         'password': '232923',
-        'role': 'admin'
+        'role': 'admin',
     };
 
     return Scaffold(
@@ -76,8 +76,11 @@ class Input_Screen extends StatelessWidget{
                        FocusScope.of(context).requestFocus(FocusNode());
                        if(!formularioRegistroKey.currentState!.validate()){
                         print("formulario no valido");
+                        _mostrarDialogo(context);
                         return;
                        }
+                       else
+                       return _mostrarDialogo1(context);
                      }), 
                      child: const SizedBox(
                       width: double.infinity,
@@ -92,6 +95,49 @@ class Input_Screen extends StatelessWidget{
       ) 
       //const Center(child: Text("Pantalla de Input_Screen")),
     );
+  }
+  void _mostrarDialogo(BuildContext context){
+    showDialog(
+      context: context, 
+      builder: ((context) {
+        return AlertDialog(
+          title: Text ("Error del Formulario"),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              Text("Formulario no Valido, debe completar todos los campos"),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              }, 
+              child: const Text("Cerrar"))],
+        );
+      }));
+  }
+
+  void _mostrarDialogo1(BuildContext context){
+    showDialog(
+      context: context, 
+      builder: ((context) {
+        return AlertDialog(
+          title: Text ("Confirmación"),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              Text("Formulario completado con éxito"),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              }, 
+              child: const Text("Cerrar"))],
+        );
+      }));
   }
 
 }
