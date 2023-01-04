@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../models/models.dart';
+import '../router/app_router.dart';
+
 class HomeScreen extends StatelessWidget{
   //final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  
+  static List<MenuOptions> listaMenu = AppRouter.menuOpcion;
+
+  const HomeScreen({super.key});
   @override
   Widget build(Object context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('MI SEGUNDA APP'),
-          backgroundColor: Colors.lightBlueAccent,
+          title: const Text('COMPONENTES DE FLUTTER'),
+          elevation: 10,
+          //backgroundColor: Colors.lightBlueAccent,
           actions: [
     
         PopupMenuButton(
@@ -48,129 +56,24 @@ class HomeScreen extends StatelessWidget{
 
   ],
         ),
-        body: Container(
-          padding: const EdgeInsets.all(20),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              
-              children: [
-                Row(
-                  children: const[
-                    Expanded(child: ElevatedButton(
-                      onPressed: null, 
-                      child:  Text("Boton1")),
-                      ),
-                      SizedBox(width: 10,),
-                      Expanded(child: ElevatedButton(
-                      onPressed: null, 
-                      child:  Text("Boton2")),
-                      ),
-                      SizedBox(width: 10,),
-                      Expanded(child: ElevatedButton(
-                      onPressed: null, 
-                      child:  Text("Boton3")),
-                      ),
-                      SizedBox(width: 10,),
-                      
-                  ],
-                ),
-                const SizedBox(height: 30,),
-                const Text("Bienvenido, haga clic para continuar"),
-                const SizedBox(height: 30,),
-                const Text("Segundo parrafo"),
-                const SizedBox(height: 30,),
-                ElevatedButton(
-              //style: style,
-              onPressed: null,
-              child: const Text('Disabled'),
-            ),
-              const SizedBox(height: 30,),
-               const  Text("Tercer parrafo"),
-               
-               const SizedBox(height: 30,),
-               
-               const Text("Bienvenido"),
-              // key: _formKey,
-               TextFormField(
-              decoration: const InputDecoration(
-              hintText: 'Ingrese su usuario',
-              
-            ),
-            
-            
-             validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Por favor ingrese nuevamente su Usuario';
-              }
-              return null;
-            },),
-            TextFormField(
-              decoration: const InputDecoration(
-              hintText: 'Ingrese su contraseña',
-              
-            ),
-            
-            
-             validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Por favor ingrese su contraseña';
-              }
-              return null;
-            },),
-            TextFormField(
-              decoration: const InputDecoration(
-              hintText: 'Confirme su contraseña',
-              
-            ),
-            
-            
-             validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Por favor ingrese nuevamente su contraseña';
-              }
-              return null;
-            },),
-            Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                // Validate will return true if the form is valid, or false if
-                // the form is invalid.
-            
-              },
-              //child: const Text('Ingresar'),
-              child: Row(
-                children: const[
-                  Expanded(child: ElevatedButton(
-                    onPressed: null, 
-                    child:  Text("Ingresar")),
-                    ),
-                    SizedBox(width: 30,),
-                    Expanded(child: ElevatedButton(
-                    onPressed: null, 
-                    child:  Text("Cancelar")),
-                    ),
-                    
-                ],
-              ),
-              
-              
-              
-            ),
-          ),
-           ],
+        body: ListView.separated(
+          itemBuilder: (context, index) => ListTile(
+            title: Text(listaMenu[index].nombre),
+            leading: Icon(listaMenu[index].icono),
+            onTap: () {
+              Navigator.pushNamed(context, listaMenu[index].route);
+            },
+          ) , 
+          separatorBuilder: ((context, index) => const Divider() ), 
+          itemCount: AppRouter.menuOpcion.length,
 
-                          
-            ),
-            
-            ),
-        ),
-        bottomNavigationBar: BottomAppBar(
-          shape: const CircularNotchedRectangle(),
-          child: Container(height: 100.5),
-        ),
+
+        )
+
+        //bottomNavigationBar: BottomAppBar(
+          //shape: const CircularNotchedRectangle(),
+          //child: Container(height: 100.5),
+        //),
       );
   }
 
